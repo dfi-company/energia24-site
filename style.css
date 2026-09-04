@@ -68,6 +68,44 @@ h3 { font-size: 1.15rem; }
   margin-bottom: 40px;
 }
 
+/* ---------- Поява елементів при прокрутці ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity .65s cubic-bezier(.2, .7, .3, 1), transform .65s cubic-bezier(.2, .7, .3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Каскад для елементів сітки — кожен наступний трохи пізніше за попередній */
+.cats .cat.reveal:nth-child(1) { transition-delay: 0s; }
+.cats .cat.reveal:nth-child(2) { transition-delay: .1s; }
+.cats .cat.reveal:nth-child(3) { transition-delay: .2s; }
+
+.grid-products .card.reveal:nth-child(1) { transition-delay: 0s; }
+.grid-products .card.reveal:nth-child(2) { transition-delay: .08s; }
+.grid-products .card.reveal:nth-child(3) { transition-delay: .16s; }
+.grid-products .card.reveal:nth-child(4) { transition-delay: .24s; }
+.grid-products .card.reveal:nth-child(5) { transition-delay: .32s; }
+
+.brands .brand.reveal:nth-child(1) { transition-delay: 0s; }
+.brands .brand.reveal:nth-child(2) { transition-delay: .08s; }
+.brands .brand.reveal:nth-child(3) { transition-delay: .16s; }
+.brands .brand.reveal:nth-child(4) { transition-delay: .24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__inner > *,
+  .reveal {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 .section__head p {
   margin: 0;
   color: var(--gray-text);
@@ -305,6 +343,24 @@ h3 { font-size: 1.15rem; }
   padding: 90px 0 96px;
 }
 
+/* Каскадна поява елементів hero при завантаженні сторінки */
+@keyframes flyIn {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: none; }
+}
+
+.hero__inner > * {
+  opacity: 0;
+  animation: flyIn .7s cubic-bezier(.2, .7, .3, 1) forwards;
+}
+
+.hero__inner > .eyebrow { animation-delay: .05s; }
+.hero__inner > h1 { animation-delay: .16s; }
+.hero__inner > .hero__tagline { animation-delay: .3s; }
+.hero__inner > .hero__phone { animation-delay: .42s; }
+.hero__inner > .hero__address { animation-delay: .52s; }
+.hero__inner > .hero__cta { animation-delay: .62s; }
+
 .hero h1 span { color: var(--green); }
 
 .hero__tagline {
@@ -526,17 +582,13 @@ h3 { font-size: 1.15rem; }
   border: 1px solid var(--gray-line);
   border-radius: var(--radius);
   background: var(--white);
-  filter: grayscale(1);
-  opacity: .72;
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, filter .2s ease, opacity .2s ease;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 
 .brand:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.03);
   box-shadow: var(--shadow);
   border-color: var(--green-light);
-  filter: grayscale(0);
-  opacity: 1;
 }
 
 .brand img {

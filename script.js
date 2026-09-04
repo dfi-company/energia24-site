@@ -8,6 +8,48 @@
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* ---- Поява елементів при прокрутці (scroll-reveal) ---- */
+  var revealSelectors = [
+    ".section__head",
+    ".cat",
+    ".card",
+    ".brand",
+    ".form",
+    ".map",
+    ".contacts__info",
+    ".partner-banner__inner",
+    ".partner-perks"
+  ];
+  var revealEls = document.querySelectorAll(revealSelectors.join(","));
+
+  if (revealEls.length) {
+    Array.prototype.forEach.call(revealEls, function (el) {
+      el.classList.add("reveal");
+    });
+
+    if ("IntersectionObserver" in window) {
+      var revealObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      );
+      Array.prototype.forEach.call(revealEls, function (el) {
+        revealObserver.observe(el);
+      });
+    } else {
+      // Немає підтримки IntersectionObserver — просто показуємо все
+      Array.prototype.forEach.call(revealEls, function (el) {
+        el.classList.add("is-visible");
+      });
+    }
+  }
+
   /* ---- Мобільне меню ---- */
   var navToggle = document.getElementById("navToggle");
   var nav = document.getElementById("nav");
