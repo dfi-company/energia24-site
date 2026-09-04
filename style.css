@@ -495,17 +495,22 @@ h3 { font-size: 1.15rem; }
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--gray-line);
-  background:
-    repeating-linear-gradient(45deg, #eef1ea 0 12px, #e7ebe1 12px 24px);
-  height: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gray-text);
-  font-weight: 600;
-  text-align: center;
-  padding: 20px;
+  height: 260px;
+  background: var(--gray-bg);
 }
+
+.map iframe { display: block; }
+
+.map__link {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: .9rem;
+  color: var(--green-dark);
+  transition: color .15s ease;
+}
+
+.map__link:hover { color: var(--green); }
 
 /* ---------- Форми ---------- */
 .form {
