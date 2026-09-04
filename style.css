@@ -383,6 +383,29 @@ h3 { font-size: 1.15rem; }
   border-color: var(--green-light);
 }
 
+.card__media {
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--gray-bg);
+  margin: -22px -22px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 14px;
+  transition: transform .3s ease;
+}
+
+.card:hover .card__media img {
+  transform: scale(1.06);
+}
+
 .card__badge {
   align-self: flex-start;
   font-size: .72rem;
