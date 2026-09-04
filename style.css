@@ -163,6 +163,20 @@ h3 { font-size: 1.15rem; }
   transform: translateY(-2px);
 }
 
+/* Обвідка для темних фонів (напр. hero) — .btn--ghost там непомітний */
+.btn--outline {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, .5);
+}
+
+.btn--outline:hover {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+  transform: translateY(-2px);
+}
+
 .btn--block {
   width: 100%;
 }
