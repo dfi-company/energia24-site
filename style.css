@@ -342,17 +342,23 @@ h3 { font-size: 1.15rem; }
 }
 
 .cat__icon {
-  width: 56px;
-  height: 56px;
+  width: 84px;
+  height: 84px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
+  border-radius: 20px;
   background: rgba(124, 179, 66, .14);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
+  transition: transform .2s ease, background .2s ease;
 }
 
-.cat__icon svg { width: 30px; height: 30px; stroke: var(--green-dark); }
+.cat:hover .cat__icon {
+  transform: scale(1.06) rotate(-2deg);
+  background: rgba(124, 179, 66, .22);
+}
+
+.cat__icon svg { width: 50px; height: 50px; }
 
 .cat p {
   margin: 0;
@@ -456,45 +462,6 @@ h3 { font-size: 1.15rem; }
   font-weight: 600;
   color: var(--gray-text);
 }
-
-/* ---------- Бренди ---------- */
-.brands {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-}
-
-.brand {
-  flex: 1 1 180px;
-  text-align: center;
-  padding: 26px 20px;
-  border: 1px solid var(--gray-line);
-  border-radius: var(--radius);
-  font-weight: 800;
-  font-size: 1.3rem;
-  letter-spacing: .02em;
-  background: var(--white);
-  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
-}
-
-.brand:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
-  background: var(--black);
-  color: var(--white);
-}
-
-.brand small {
-  display: block;
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--green-dark);
-  margin-top: 6px;
-}
-
-.brand:hover small { color: var(--green-light); }
 
 /* ---------- Контакти ---------- */
 .contacts {
