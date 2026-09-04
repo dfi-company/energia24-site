@@ -463,6 +463,33 @@ h3 { font-size: 1.15rem; }
   color: var(--gray-text);
 }
 
+/* ---------- CTA «Стати партнером» ---------- */
+.partner-banner {
+  background: var(--black);
+  color: var(--white);
+  padding: 46px 0;
+}
+
+.partner-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+
+.partner-banner h2 {
+  color: var(--white);
+  margin-bottom: 6px;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+}
+
+.partner-banner p {
+  margin: 0;
+  color: #d7dbd2;
+  max-width: 520px;
+}
+
 /* ---------- Контакти ---------- */
 .contacts {
   display: grid;
