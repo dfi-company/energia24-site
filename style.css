@@ -88,6 +88,7 @@ h3 { font-size: 1.15rem; }
 .logo {
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
   font-weight: 800;
   font-size: 1.5rem;
   letter-spacing: -0.03em;
@@ -182,10 +183,12 @@ h3 { font-size: 1.15rem; }
 
 .header__bar {
   display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
   align-items: center;
-  gap: 22px;
+  gap: 16px 22px;
   padding: 14px 20px;
-  max-width: var(--maxw);
+  max-width: 1320px;
   margin: 0 auto;
 }
 
@@ -212,6 +215,8 @@ h3 { font-size: 1.15rem; }
 .header__phone {
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
   gap: 8px;
   background: var(--black);
   color: var(--white);
