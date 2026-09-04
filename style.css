@@ -263,26 +263,48 @@ h3 { font-size: 1.15rem; }
   position: relative;
   color: var(--white);
   overflow: hidden;
-  background:
-    linear-gradient(90deg, rgba(0, 0, 0, .78) 0%, rgba(0, 0, 0, .35) 48%, rgba(0, 0, 0, 0) 78%),
-    url("images/hero-products.jpg") right center / cover no-repeat,
-    var(--black);
+  background: var(--black);
+}
+
+.hero__grid {
+  display: flex;
+  align-items: center;
+  gap: 46px;
+  padding: 64px 0;
+}
+
+.hero__media {
+  flex: 0 1 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__media img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, .45);
+}
+
+@media (max-width: 900px) {
+  .hero__grid { gap: 30px; }
+  .hero__media { flex-basis: 280px; }
 }
 
 @media (max-width: 780px) {
-  .hero {
-    background:
-      linear-gradient(180deg, rgba(0, 0, 0, .55) 0%, rgba(0, 0, 0, .85) 62%, rgba(0, 0, 0, .95) 100%),
-      url("images/hero-products.jpg") 68% center / cover no-repeat,
-      var(--black);
+  .hero__grid {
+    flex-direction: column-reverse;
+    padding: 40px 0 48px;
   }
+
+  .hero__media { flex-basis: auto; width: 100%; max-width: 360px; }
 }
 
 .hero__inner {
   position: relative;
   z-index: 1;
-  padding: 84px 0 90px;
-  max-width: 780px;
+  flex: 1 1 420px;
+  max-width: 620px;
 }
 
 .hero h1 span { color: var(--green); }
