@@ -263,48 +263,27 @@ h3 { font-size: 1.15rem; }
   position: relative;
   color: var(--white);
   overflow: hidden;
-  background: var(--black);
+  background: radial-gradient(circle at 100% 0%, rgba(124, 179, 66, .35), transparent 60%), var(--black);
 }
 
-.hero__grid {
-  display: flex;
-  align-items: center;
-  gap: 46px;
-  padding: 64px 0;
-}
-
-.hero__media {
-  flex: 0 1 400px;
-  display: flex;
-  justify-content: center;
-}
-
-.hero__media img {
-  width: 100%;
-  height: auto;
-  border-radius: 18px;
-  box-shadow: 0 24px 50px rgba(0, 0, 0, .45);
-}
-
-@media (max-width: 900px) {
-  .hero__grid { gap: 30px; }
-  .hero__media { flex-basis: 280px; }
-}
-
-@media (max-width: 780px) {
-  .hero__grid {
-    flex-direction: column-reverse;
-    padding: 40px 0 48px;
+/* Фото-банер вмикаємо лише на справді широких екранах: тільки там
+   гарантовано лишається достатньо темного простору зліва для тексту,
+   щоб він не наліз на світлий корпус інвертора. На вужчих —
+   фірмовий чорно-зелений градієнт без фото. */
+@media (min-width: 1180px) {
+  .hero {
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, .68) 0, rgba(0, 0, 0, .68) 660px, rgba(0, 0, 0, .2) 900px, rgba(0, 0, 0, 0) 1080px),
+      url("images/hero-banner.jpg") right center / cover no-repeat,
+      var(--black);
   }
-
-  .hero__media { flex-basis: auto; width: 100%; max-width: 360px; }
 }
 
 .hero__inner {
   position: relative;
   z-index: 1;
-  flex: 1 1 420px;
   max-width: 620px;
+  padding: 90px 0 96px;
 }
 
 .hero h1 span { color: var(--green); }
